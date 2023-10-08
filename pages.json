@@ -1,0 +1,120 @@
+{
+  "pages": [{
+      "path": "pages/connect/connect",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "background": "#111111"
+        },
+        "navigationBarTextStyle": "white",
+        "disableScroll": true,
+        "backgroundColor": "#111111"
+      }
+    },
+    {
+      "path": "pages/demo/demo",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "background": "#111111"
+        },
+        "navigationBarTextStyle": "white",
+        "disableScroll": true,
+        "backgroundColor": "#111111"
+      }
+    },
+    {
+      "path": "pages/product-tutorial/product-tutorial",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "background": "#111111"
+        },
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#111111",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/help/help",
+      "style": {
+        "app-plus": {
+          "titleNView": false,
+          "background": "#111111"
+        },
+        "navigationBarTextStyle": "white",
+        "disableScroll": true,
+        "backgroundColor": "#111111"
+      }
+    }
+  ],
+  "subPackages": [{
+    "root": "subpkg",
+    "pages": [{
+        "path": "device/device",
+        "style": {
+          "app-plus": {
+            "titleNView": false,
+            "background": "#111111"
+          },
+          "navigationBarTextStyle": "white",
+          "backgroundColor": "#111111",
+          "disableScroll": true
+        }
+      },
+      {
+        "path": "device/c-views/bluetooth-setting/bluetooth-setting",
+        "style": {
+          "app-plus": {
+            "titleNView": false,
+            "background": "#111111"
+          },
+          "navigationBarTextStyle": "white",
+          "backgroundColor": "#111111",
+          "disableScroll": true
+        }
+      },
+      {
+        "path": "device/c-views/manual/manual",
+        "style": {
+          "app-plus": {
+            "titleNView": false,
+            "background": "#111111"
+          },
+          "navigationBarTextStyle": "white",
+          "backgroundColor": "#111111",
+          "disableScroll": true
+        }
+      },
+      {
+        "path": "/looking-for-device/looking-for-device",
+        "style": {
+          "app-plus": {
+            "titleNView": false,
+            "background": "#111111"
+          },
+          "navigationBarTextStyle": "white",
+          "backgroundColor": "#111111",
+          "disableScroll": true
+        }
+      },
+      {
+        "path": "device/c-views/manual/detail/detail",
+        "style": {
+          "navigationBarBackgroundColor": "#111111",
+          "navigationBarTextStyle": "white",
+          "backgroundColor": "#111111"
+        }
+      }
+    ]
+  }],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "app-plus": {
+      "background": "#efeff4"
+    }
+  }
+}

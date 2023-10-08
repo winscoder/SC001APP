@@ -1,0 +1,23 @@
+.uni-nav-bar-text {
+  font-size: 36rpx !important;
+  font-family: "Corbelb";
+}
+
+uni-button {
+  height: 86rpx;
+  background: #FF8616;
+  border-radius: 15rpx 15rpx 15rpx 15rpx;
+  font-family: "Corbelb";
+  font-size: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uni-badge {
+  border: none !important;
+}
+
+uni-switch .uni-switch-input:before {
+  /* background-color: red; */
+}
