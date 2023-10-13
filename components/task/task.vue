@@ -483,6 +483,7 @@
           .active {
             font-size: 65rpx;
             transition: font-size 0.25s linear;
+            color: #FF8616;
           }
 
           .no-active {
@@ -493,10 +494,13 @@
       }
 
       .always {
-        margin-left: 249rpx;
+        margin: 0 auto;
+        width: 40%;
+        height: 60rpx;
         margin-top: 80rpx;
+        // border: 1rpx solid red;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         color: #888888;
         font-size: 26rpx;
