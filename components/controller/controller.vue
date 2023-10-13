@@ -324,7 +324,7 @@
         }
       },
       'deviceStore.cruise'(newVal) {
-        if(newVal === '开启') {
+        if (newVal === '开启') {
           this.isOpenKeep = true
         } else if (newVal === '关闭') {
           this.isOpenKeep = false
@@ -395,7 +395,8 @@
         if (this.deviceStore.right_dc_exception == '其他异常' || this.deviceStore.right_dc_exception == '电机堵转') return false
         if (this.deviceStore.battery_exception !== '工作正常' && this.deviceStore.battery_exception !== '') return false
         if (this.deviceStore.system_exception === '系统异常' || this.deviceStore.system_exception === '其他异常') return false
-
+        if (this.deviceStore.movement_exception === '围困异常') return false
+        
         return true
       },
 

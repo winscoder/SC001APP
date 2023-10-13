@@ -16,7 +16,8 @@ const deviceStore = {
   start_exception: '',
   movement_exception: '',
   filter_exception: '',
-  move_error_flag: ''
+  move_error_flag: '',
+  work_cycle_set: ''
 }
 
 /**
@@ -35,9 +36,9 @@ export function stateFeedback(hexString) {
   }
 
   let stateText = ''
-  if (newHexString.split(' ').length < 24) return
+  if (newHexString.split(' ').length < 25) return
 
-  const hexArr = newHexString.split(' ').splice(5, 16)
+  const hexArr = newHexString.split(' ').splice(5, 17)
 
   // 状态
   switch (hexArr[0]) {
@@ -290,10 +291,36 @@ export function stateFeedback(hexString) {
       break
   }
 
+  switch (hexArr[16]) {
+    case '00':
+      deviceStore.work_cycle_set = 0
+      break
+    case '01':
+      deviceStore.work_cycle_set = 1
+      break
+    case '02':
+      deviceStore.work_cycle_set = 2
+      break
+    case '03':
+      deviceStore.work_cycle_set = 3
+      break
+    case '04':
+      deviceStore.work_cycle_set = 4
+      break
+    case '05':
+      deviceStore.work_cycle_set = 5
+      break
+    default:
+      deviceStore.work_cycle_set = null
+      break
+  }
+
   store.commit('handleDeviceState', deviceStore)
 
   if (stateText) {
-    store.commit('handleChangeStateText', {text: stateText})
+    store.commit('handleChangeStateText', {
+      text: stateText
+    })
   } else {
     switch (hexArr[0]) {
       case '00':

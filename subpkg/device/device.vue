@@ -287,6 +287,10 @@
             // this.isSwitch = true
             this.disabled = false
             break
+          case '闲置':
+            // this.isSwitch = true
+            this.disabled = false
+            break
           case '异常':
             if (this.deviceStore.low_bat_flag !== "低电状态") {
               if (this.deviceStore.state === '等待' || this.deviceStore.state === '充电') return
@@ -709,13 +713,13 @@
         let msg = analysisAscll(this.deviceName)
         msg = msg.split(" ")
         const length = (24 - msg.length)
-        for(let i = 0; i <= length; i++) {
+        for (let i = 0; i <= length; i++) {
           msg.push('00')
         }
         msg = msg.join(" ")
-        
-        
-        
+
+
+
         const CRC = crc16xmodem(`6A 02 B1 1A 00 ${nameLength} ${msg}`)
         writeBLECharacteristicValue(`6A 02 B1 1A 00 ${nameLength} ${msg} ${CRC} 0A`)
         // 再次获取设备信息

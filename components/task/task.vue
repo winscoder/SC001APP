@@ -1,127 +1,129 @@
 <template>
   <view style="margin-top: 40rpx;">
-    <scroll-view scroll-y="true" style="height: calc(100vh - 600rpx);">
-      <view class="task">
-        <!-- 标签页区域 -->
-        <view class="select" v-show="active === 'time' || active === 'area' || active === 'start'">
-          <view :class="['time', active === 'time' && timeOrControlStatus ? 'active' : '']"
-            @click="handleChangeSelect('time')">Time</view>
-          <view
-            :class="['area', (active === 'area' && timeOrControlStatus || active && timeOrControlStatus === 'start') ? 'active' : '']"
-            @click="handleChangeSelect('area')">Area</view>
-        </view>
-        <view class="tip">
-          <view v-show="active === 'time'">Please select the cleaning duration:</view>
-          <view v-show="active === 'area'">Please select the area you want to clean:</view>
-          <view style="margin-top: 10rpx;" v-show="active === 'control'">Please drive the robot to the starting point:
-          </view>
-        </view>
-
-        <!-- 选择时间区域 -->
-        <view class="select-time" v-show="active === 'time'">
-          <scroll-view class="scroll-view" :scroll-x="timeOrControlStatus" :scroll-left="initLeft" @scroll="scroll"
-            :show-scrollbar="false">
-            <!-- content 高度要通过计算 如果item 是数据请求的列表 可以到 style 找计算公式 -->
-            <view class="content">
-              <view :class="['scroll-view-item', scrollLeft === 0 ? 'active' : 'no-active']">0.5h</view>
-              <view :class="['scroll-view-item', scrollLeft === 75 ? 'active' : 'no-active']">1.0h</view>
-              <view :class="['scroll-view-item', scrollLeft === 135 ? 'active' : 'no-active']">1.5h</view>
-              <view :class="['scroll-view-item', scrollLeft === 195 ? 'active' : 'no-active']">2.0h</view>
-              <view :class="['scroll-view-item', scrollLeft === 255 ? 'active' : 'no-active']">2.5h</view>
-              <view :class="['scroll-view-item', scrollLeft === 315 ? 'active' : 'no-active']">3.0h</view>
-            </view>
-          </scroll-view>
-          <view class="always">
-            <view class="icon" @click="handleIsShowAlways">
-              <view class="dot" v-show="isShowAlawys"></view>
-            </view>
-            <view>Set as default</view>
-          </view>
-          <view :class="[ timeOrControlStatus ? 'btn' : 'no-btn']" @click="handleSetTimeTask">
-            <button>Confirm</button>
-          </view>
-        </view>
-
-        <!-- 选择区域的区域 -->
-        <view class="select-area" v-show="active === 'area'">
-          <view class="icon">
-            <view @click="handleChangetaskIcon('left')">
-              <view class="left-active" v-show="taskActive === 'left'">
-                <!-- <image class="active" src="@/static/img/device/task/task_left_region_check.png"
-                  mode=""></image> -->
-                <view
-                  style="width: 90%; height: 49rpx; background: #222222; font-size: 32rpx; position: absolute; top: 265rpx; left: 5%; color: #FFFFFF; text-align: center;">
-                  Left Side
-                </view>
-              </view>
-              <view class="left-no-active" v-show="taskActive === 'right'">
-                <view
-                  style="width: 100%; height: 39rpx; background: #191919; font-size: 32rpx; position: absolute; top: 245rpx; left: 0; color: rgba(135, 135, 135, 1); text-align: center;">
-                  Left Side
-                </view>
-                <!-- <image v-show="taskActive === 'right'" class="no-active"
-                  src="@/static/img/device/task/task_left_region_normal.png" mode=""></image> -->
-              </view>
-            </view>
-            <view @click="handleChangetaskIcon('right')">
-              <view class="right-active" v-show="taskActive === 'right'">
-                <view
-                  style="width: 90%; height: 49rpx; background: #222222; font-size: 32rpx; position: absolute; top: 265rpx; left: 5%; color: #FFFFFF; text-align: center;">
-                  Right Side
-                </view>
-                <!-- <image class="active"
-                  src="@/static/img/device/task/task_right_region_check.png" mode=""></image> -->
-              </view>
-              <view class="right-no-active" v-show="taskActive === 'left'">
-                <view
-                  style="width: 100%; height: 39rpx; background: #191919; font-size: 32rpx; position: absolute; top: 245rpx; left: 0; color: rgba(135, 135, 135, 1); text-align: center;">
-                  Right Side
-                </view>
-                <!-- <image class="no-active"
-                  src="@/static/img/device/task/task_right_region_normal.png" mode=""></image> -->
-              </view>
-            </view>
-          </view>
-          <view :class="[ timeOrControlStatus ? 'btn' : 'no-btn']">
-            <button type="default" @click="handleAreaConfirm">Confirm</button>
-          </view>
-        </view>
-
-        <!-- 确认区域的区域 -->
-        <!-- <view class="control" v-show="active === 'control'">
-          <image src="@/static/img/device/controller/controller_rocker_bg.png" mode=""></image>
-        </view> -->
-        <view v-show="active === 'control'">
-          <controller type="2"></controller>
-        </view>
-
-        <!-- 执行区域规划任务区域 -->
-        <view class="control-bnts" v-show="active === 'control'">
-          <view :class="[ timeOrControlStatus ? 'back' : 'no-btn']">
-            <button @click="handleControlBack">Back</button>
-          </view>
-          <view :class="[ timeOrControlStatus ? 'region-start' : 'no-btn']">
-            <button @click="handleControlStart">Start</button>
-          </view>
-        </view>
-
-        <!-- 开始区域 -->
-        <view class="area-start" v-show="active === 'start'">
-          <view style="color: #FFFFFF; font-size: 46rpx;">
-            {{startTip}}
-          </view>
-          <view style="width: 158rpx; color: #C7C7C7; font-size: 28rpx; margin-top: 20rpx; text-align: center;">
-            Automatically
-            Cleaning
-          </view>
-        </view>
-
-        <!-- 开始的按钮区域 -->
-        <view :class="[ timeOrControlStatus ? 'stop' : 'no-btn']" v-show="active === 'start'" @click="handleStopClean">
-          <button>Stop</button>
+    <!-- <scroll-view scroll-y="true" style="height: calc(100vh - 600rpx);"> -->
+    <view class="task">
+      <!-- 标签页区域 -->
+      <view class="select" v-show="active === 'time' || active === 'area' || active === 'start'">
+        <view :class="['time', active === 'time' && timeOrControlStatus ? 'active' : '']"
+          @click="handleChangeSelect('time')">Time</view>
+        <view
+          :class="['area', (active === 'area' && timeOrControlStatus || active && timeOrControlStatus === 'start') ? 'active' : '']"
+          @click="handleChangeSelect('area')">Area</view>
+      </view>
+      <view class="tip">
+        <view v-show="active === 'time'">Please select the cleaning duration:</view>
+        <view v-show="active === 'area'">Please select the area you want to clean:</view>
+        <view style="margin-top: 10rpx;" v-show="active === 'control'">Please drive the robot to the starting point:
         </view>
       </view>
-    </scroll-view>
+
+      <!-- 选择时间区域 -->
+      <view class="select-time" v-show="active === 'time'">
+        <scroll-view class="scroll-view" :scroll-x="true" :scroll-left="initLeft" @scroll="scroll"
+          :show-scrollbar="false" scroll-with-animation>
+          <!-- content 高度要通过计算 如果item 是数据请求的列表 可以到 style 找计算公式 -->
+          <view class="content">
+            <view :class="['scroll-view-item', scrollLeft === 0 ? 'active' : 'no-active']">0.5h</view>
+            <view :class="['scroll-view-item', scrollLeft === 75 ? 'active' : 'no-active']">1.0h</view>
+            <view :class="['scroll-view-item', scrollLeft === 135 ? 'active' : 'no-active']">1.5h</view>
+            <view :class="['scroll-view-item', scrollLeft === 195 ? 'active' : 'no-active']">2.0h</view>
+            <view :class="['scroll-view-item', scrollLeft === 255 ? 'active' : 'no-active']">2.5h</view>
+            <view :class="['scroll-view-item', scrollLeft === 315 ? 'active' : 'no-active']">3.0h</view>
+          </view>
+        </scroll-view>
+        <view class="always">
+          <view class="icon" @click="handleIsShowAlways">
+            <view class="dot" v-show="isShowAlawys"></view>
+          </view>
+          <view>Set as default</view>
+        </view>
+        <view :class="[ timeOrControlStatus ? 'btn' : 'no-btn']" style="margin-top: 135rpx;" @click="handleSetTimeTask">
+          <button>Confirm</button>
+        </view>
+        <!-- 禁止滑动scroll -->
+        <view class="not-scroll" v-if="!timeOrControlStatus"></view>
+      </view>
+
+      <!-- 选择区域的区域 -->
+      <view class="select-area" v-show="active === 'area'">
+        <view class="icon">
+          <view @click="handleChangetaskIcon('left')">
+            <view class="left-active" v-show="taskActive === 'left'">
+              <!-- <image class="active" src="@/static/img/device/task/task_left_region_check.png"
+                  mode=""></image> -->
+              <view
+                style="width: 90%; height: 49rpx; background: #222222; font-size: 32rpx; position: absolute; top: 265rpx; left: 5%; color: #FFFFFF; text-align: center;">
+                Left Side
+              </view>
+            </view>
+            <view class="left-no-active" v-show="taskActive === 'right'">
+              <view
+                style="width: 100%; height: 39rpx; background: #191919; font-size: 32rpx; position: absolute; top: 245rpx; left: 0; color: rgba(135, 135, 135, 1); text-align: center;">
+                Left Side
+              </view>
+              <!-- <image v-show="taskActive === 'right'" class="no-active"
+                  src="@/static/img/device/task/task_left_region_normal.png" mode=""></image> -->
+            </view>
+          </view>
+          <view @click="handleChangetaskIcon('right')">
+            <view class="right-active" v-show="taskActive === 'right'">
+              <view
+                style="width: 90%; height: 49rpx; background: #222222; font-size: 32rpx; position: absolute; top: 265rpx; left: 5%; color: #FFFFFF; text-align: center;">
+                Right Side
+              </view>
+              <!-- <image class="active"
+                  src="@/static/img/device/task/task_right_region_check.png" mode=""></image> -->
+            </view>
+            <view class="right-no-active" v-show="taskActive === 'left'">
+              <view
+                style="width: 100%; height: 39rpx; background: #191919; font-size: 32rpx; position: absolute; top: 245rpx; left: 0; color: rgba(135, 135, 135, 1); text-align: center;">
+                Right Side
+              </view>
+              <!-- <image class="no-active"
+                  src="@/static/img/device/task/task_right_region_normal.png" mode=""></image> -->
+            </view>
+          </view>
+        </view>
+        <view :class="[ timeOrControlStatus ? 'btn' : 'no-btn']">
+          <button type="default" @click="handleAreaConfirm">Confirm</button>
+        </view>
+      </view>
+
+      <!-- 确认区域的区域 -->
+      <!-- <view class="control" v-show="active === 'control'">
+          <image src="@/static/img/device/controller/controller_rocker_bg.png" mode=""></image>
+        </view> -->
+      <view v-show="active === 'control'">
+        <controller type="2"></controller>
+      </view>
+
+      <!-- 执行区域规划任务区域 -->
+      <view class="control-bnts" v-show="active === 'control'">
+        <view :class="[ timeOrControlStatus ? 'back' : 'no-btn']">
+          <button @click="handleControlBack">Back</button>
+        </view>
+        <view :class="[ timeOrControlStatus ? 'region-start' : 'no-btn']">
+          <button @click="handleControlStart">Start</button>
+        </view>
+      </view>
+
+      <!-- 开始区域 -->
+      <view class="area-start" v-show="active === 'start'">
+        <view style="color: #FFFFFF; font-size: 46rpx;">
+          {{startTip}}
+        </view>
+        <view style="width: 158rpx; color: #C7C7C7; font-size: 28rpx; margin-top: 20rpx; text-align: center;">
+          Automatically
+          Cleaning
+        </view>
+      </view>
+
+      <!-- 开始的按钮区域 -->
+      <view :class="[ timeOrControlStatus ? 'stop' : 'no-btn']" v-show="active === 'start'" @click="handleStopClean">
+        <button>Stop</button>
+      </view>
+    </view>
+    <!-- </scroll-view> -->
   </view>
 </template>
 
@@ -137,6 +139,9 @@
   import {
     rpxTopx
   } from "@/utils/rpxToPx.js"
+  import {
+    crc16xmodem
+  } from "@/utils/CRC_XMODEM.js"
 
   const zeroFive = rpxTopx(60 * 2)
   const oneZero = rpxTopx(120 * 2)
@@ -155,12 +160,61 @@
         //   this.active = ''
         //   return
         // }
+      },
+      "deviceStore.work_cycle_set": {
+        handler(newVal, oldVal) {
+          switch (newVal ? newVal : this.deviceStore.work_cycle_set) {
+            case 0:
+              setTimeout(() => {
+                this.scrollLeft = 0
+                this.initLeft = rpxTopx((0 + 20) * 2)
+              }, 200)
+              break;
+            case 1:
+              setTimeout(() => {
+                this.scrollLeft = 75
+                this.initLeft = rpxTopx((75 + 20) * 2)
+              }, 200)
+              break;
+            case 2:
+              setTimeout(() => {
+                this.scrollLeft = 135
+                this.initLeft = rpxTopx((135 + 20) * 2)
+              }, 200)
+              break;
+            case 3:
+              setTimeout(() => {
+                this.scrollLeft = 195
+                this.initLeft = rpxTopx((195 + 20) * 2)
+              }, 200)
+              break;
+            case 4:
+              setTimeout(() => {
+                this.scrollLeft = 255
+                this.initLeft = rpxTopx((255 + 20) * 2)
+              }, 200)
+              break;
+            case 5:
+              setTimeout(() => {
+                this.scrollLeft = 315
+                this.initLeft = rpxTopx((315 + 20) * 2)
+              }, 200)
+              break;
+            default:
+              setTimeout(() => {
+                this.scrollLeft = 195
+                this.initLeft = rpxTopx((195 + 20) * 2)
+              }, 200)
+              break;
+          }
+        },
+        immediate: true
       }
     },
     data() {
       return {
         // 初始化scrollLeft
-        initLeft: rpxTopx(215 * 2),
+        initLeft: null,
         // 标签页的活跃
         active: "time",
         // 滚动的位置
@@ -173,8 +227,8 @@
       };
     },
     mounted() {
-      uni.getStorageSync('scrollLeft') ? this.initLeft = uni.getStorageSync('scrollLeft') : rpxTopx(215 * 2) // 195 + 20
-      this.timeOrControlStatus ? this.scrollLeft = 195 : this.scrollLeft = 0
+      // uni.getStorageSync('scrollLeft') ? this.initLeft = uni.getStorageSync('scrollLeft') : rpxTopx(215 * 2) // 195 + 20
+      // this.timeOrControlStatus ? this.scrollLeft = 195 : this.scrollLeft = 0
     },
     computed: {
       ...mapState(['deviceStore', 'linkStatus']),
@@ -287,22 +341,22 @@
         const isSave = this.isShowAlawys ? '01' : '00'
         switch (this.scrollLeft) {
           case 0:
-            writeBLECharacteristicValue(`6A 02 B4 02 00 00 ${isSave} ${isSave === '01' ? '65 91' : '44 81'} 0A`)
+            writeBLECharacteristicValue(`6A 01 B4 02 00 00 ${isSave} ${crc16xmodem(`6A 01 B4 02 00 00 ${isSave}`)} 0A`)
             break;
           case 75:
-            writeBLECharacteristicValue(`6A 02 B4 02 00 01 ${isSave} ${isSave === '01' ? '54 A2' : '75 B2'} 0A`)
+            writeBLECharacteristicValue(`6A 01 B4 02 00 01 ${isSave} ${crc16xmodem(`6A 01 B4 02 00 01 ${isSave}`)} 0A`)
             break;
           case 135:
-            writeBLECharacteristicValue(`6A 02 B4 02 00 02 ${isSave} ${isSave === '01' ? '07 F7' : '26 E7'} 0A`)
+            writeBLECharacteristicValue(`6A 01 B4 02 00 02 ${isSave} ${crc16xmodem(`6A 01 B4 02 00 02 ${isSave}`)} 0A`)
             break;
           case 195:
-            writeBLECharacteristicValue(`6A 02 B4 02 00 03 ${isSave} ${isSave === '01' ? '36 C4' : '17 D4'} 0A`)
+            writeBLECharacteristicValue(`6A 01 B4 02 00 03 ${isSave} ${crc16xmodem(`6A 01 B4 02 00 03 ${isSave}`)} 0A`)
             break;
           case 255:
-            writeBLECharacteristicValue(`6A 02 B4 02 00 04 ${isSave} ${isSave === '01' ? 'A1 5D' : '80 4D'} 0A`)
+            writeBLECharacteristicValue(`6A 01 B4 02 00 04 ${isSave} ${crc16xmodem(`6A 01 B4 02 00 04 ${isSave}`)} 0A`)
             break;
           case 315:
-            writeBLECharacteristicValue(`6A 02 B4 02 00 05 ${isSave} ${isSave === '01' ? '90 6E' : 'B1 7E'} 0A`)
+            writeBLECharacteristicValue(`6A 01 B4 02 00 05 ${isSave} ${crc16xmodem(`6A 01 B4 02 00 05 ${isSave}`)} 0A`)
             break;
           default:
             break;
@@ -317,6 +371,22 @@
 </script>
 
 <style lang="scss" scoped>
+  /* 解决小程序和app滚动条的问题 */
+  /* #ifdef MP-WEIXIN || APP-PLUS */
+  /deep/ uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* #endif */
+  /* 解决H5 的问题 */
+  /* #ifdef H5 */
+  /deep/ uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
+    /* 隐藏滚动条，但依旧具备可以滚动的功能 */
+    display: none
+  }
+
+  /* #endif */
+
   .task {
     // min-height: 700rpx;
     padding-bottom: 40rpx;
@@ -371,6 +441,15 @@
     .select-time {
       margin-top: 100rpx;
       margin-top: 0 30rpx;
+      position: relative;
+
+      .not-scroll {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
 
       .scroll-view {
         width: 100%;
@@ -555,6 +634,9 @@
     }
 
     .control-bnts {
+      width: calc(100vw - 60rpx);
+      position: fixed;
+      bottom: 20rpx;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -604,7 +686,7 @@
     }
 
     .no-btn {
-      margin-top: 75rpx;
+      // margin-top: 75rpx;
 
       uni-button {
         width: 242rpx;

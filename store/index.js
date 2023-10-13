@@ -47,7 +47,8 @@ const store = new Vuex.Store({
         start_exception: '',
         movement_exception: '',
         filter_exception: '',
-        move_error_flag: ''
+        move_error_flag: '',
+        work_cycle_set: ''
       },
       // 文本反馈
       stateText: 'bluetooth disconnected',
@@ -169,7 +170,8 @@ const store = new Vuex.Store({
           start_exception: '',
           movement_exception: '',
           filter_exception: '',
-          move_error_flag: ''
+          move_error_flag: '',
+          work_cycle_set: ''
         }
       }
     },

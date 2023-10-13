@@ -199,15 +199,15 @@ const getBLEDeviceServices = (deviceId, cb) => {
 const getBLEDeviceCharacteristics = (deviceId, serviceId, cb) => {
   uni.setStorageSync('device_uuid', serviceId)
 
-  plus.bluetooth.getConnectedBluetoothDevices({
-    services: serviceId,
-    success(res) {
+  // plus.bluetooth.getConnectedBluetoothDevices({
+  //   services: serviceId,
+  //   success(res) {
 
-    },
-    fail(err) {
+  //   },
+  //   fail(err) {
 
-    }
-  });
+  //   }
+  // });
 
   uni.getBLEDeviceCharacteristics({
     // 这里的 deviceId 需要已经通过 createBLEConnection 与对应设备建立链接
@@ -227,6 +227,7 @@ const getBLEDeviceCharacteristics = (deviceId, serviceId, cb) => {
       setTimeout(() => {
         // 主动获取状态
         writeBLECharacteristicValue('6A 01 B2 00 00 59 B9 0A')
+        GET_DEVICE_STATUS()
         // 读取设备信息
         setTimeout(() => {
           writeBLECharacteristicValue('6A 01 B1 00 00 09 E0 0A')
@@ -407,6 +408,23 @@ const _writeBLECharacteristicValue = (dataView) => {
       // console.log('writeBLECharacteristicValue fail', res);
     }
   });
+
+}
+
+/**
+ * 获取用户信息
+ */
+let time_num = 0
+function GET_DEVICE_STATUS() {
+  if (time_num < 2) {
+    setTimeout(() => {
+      time_num++
+      writeBLECharacteristicValue('6A 01 B2 00 00 59 B9 0A')
+      GET_DEVICE_STATUS()
+    }, 1000)
+  } else {
+    time_num = 0
+  }
 
 }
 

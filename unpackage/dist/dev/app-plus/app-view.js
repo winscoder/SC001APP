@@ -6035,15 +6035,56 @@ var render = function () {
     { staticStyle: { "margin-top": "40rpx" }, attrs: { _i: 0 } },
     [
       _c(
-        "v-uni-scroll-view",
-        {
-          staticStyle: { height: "calc(100vh - 600rpx)" },
-          attrs: { "scroll-y": "true", _i: 1 },
-        },
+        "uni-view",
+        { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
         [
           _c(
             "uni-view",
-            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(2, "v-show"),
+                  expression: "_$g(2,'v-show')",
+                },
+              ],
+              staticClass: _vm._$g(2, "sc"),
+              attrs: { _i: 2 },
+            },
+            [
+              _c(
+                "uni-view",
+                {
+                  class: _vm._$g(3, "c"),
+                  attrs: { _i: 3 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [_vm._v("Time")]
+              ),
+              _c(
+                "uni-view",
+                {
+                  class: _vm._$g(4, "c"),
+                  attrs: { _i: 4 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [_vm._v("Area")]
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
             [
               _c(
                 "uni-view",
@@ -6052,95 +6093,13 @@ var render = function () {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm._$g(3, "v-show"),
-                      expression: "_$g(3,'v-show')",
+                      value: _vm._$g(6, "v-show"),
+                      expression: "_$g(6,'v-show')",
                     },
                   ],
-                  staticClass: _vm._$g(3, "sc"),
-                  attrs: { _i: 3 },
+                  attrs: { _i: 6 },
                 },
-                [
-                  _c(
-                    "uni-view",
-                    {
-                      class: _vm._$g(4, "c"),
-                      attrs: { _i: 4 },
-                      on: {
-                        click: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
-                    [_vm._v("Time")]
-                  ),
-                  _c(
-                    "uni-view",
-                    {
-                      class: _vm._$g(5, "c"),
-                      attrs: { _i: 5 },
-                      on: {
-                        click: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
-                    [_vm._v("Area")]
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-                [
-                  _c(
-                    "uni-view",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm._$g(7, "v-show"),
-                          expression: "_$g(7,'v-show')",
-                        },
-                      ],
-                      attrs: { _i: 7 },
-                    },
-                    [_vm._v("Please select the cleaning duration:")]
-                  ),
-                  _c(
-                    "uni-view",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm._$g(8, "v-show"),
-                          expression: "_$g(8,'v-show')",
-                        },
-                      ],
-                      attrs: { _i: 8 },
-                    },
-                    [_vm._v("Please select the area you want to clean:")]
-                  ),
-                  _c(
-                    "uni-view",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm._$g(9, "v-show"),
-                          expression: "_$g(9,'v-show')",
-                        },
-                      ],
-                      staticStyle: { "margin-top": "10rpx" },
-                      attrs: { _i: 9 },
-                    },
-                    [_vm._v("Please drive the robot to the starting point:")]
-                  ),
-                ],
-                1
+                [_vm._v("Please select the cleaning duration:")]
               ),
               _c(
                 "uni-view",
@@ -6149,113 +6108,115 @@ var render = function () {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm._$g(10, "v-show"),
-                      expression: "_$g(10,'v-show')",
+                      value: _vm._$g(7, "v-show"),
+                      expression: "_$g(7,'v-show')",
                     },
                   ],
+                  attrs: { _i: 7 },
+                },
+                [_vm._v("Please select the area you want to clean:")]
+              ),
+              _c(
+                "uni-view",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm._$g(8, "v-show"),
+                      expression: "_$g(8,'v-show')",
+                    },
+                  ],
+                  staticStyle: { "margin-top": "10rpx" },
+                  attrs: { _i: 8 },
+                },
+                [_vm._v("Please drive the robot to the starting point:")]
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(9, "v-show"),
+                  expression: "_$g(9,'v-show')",
+                },
+              ],
+              staticClass: _vm._$g(9, "sc"),
+              attrs: { _i: 9 },
+            },
+            [
+              _c(
+                "v-uni-scroll-view",
+                {
                   staticClass: _vm._$g(10, "sc"),
-                  attrs: { _i: 10 },
+                  attrs: {
+                    "scroll-x": true,
+                    "scroll-left": _vm._$g(10, "a-scroll-left"),
+                    "show-scrollbar": false,
+                    "scroll-with-animation": true,
+                    _i: 10,
+                  },
+                  on: {
+                    scroll: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
                 },
                 [
                   _c(
-                    "v-uni-scroll-view",
-                    {
-                      staticClass: _vm._$g(11, "sc"),
-                      attrs: {
-                        "scroll-x": _vm._$g(11, "a-scroll-x"),
-                        "scroll-left": _vm._$g(11, "a-scroll-left"),
-                        "show-scrollbar": false,
-                        _i: 11,
-                      },
-                      on: {
-                        scroll: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
+                    "uni-view",
+                    { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
-                        [
-                          _c(
-                            "uni-view",
-                            { class: _vm._$g(13, "c"), attrs: { _i: 13 } },
-                            [_vm._v("0.5h")]
-                          ),
-                          _c(
-                            "uni-view",
-                            { class: _vm._$g(14, "c"), attrs: { _i: 14 } },
-                            [_vm._v("1.0h")]
-                          ),
-                          _c(
-                            "uni-view",
-                            { class: _vm._$g(15, "c"), attrs: { _i: 15 } },
-                            [_vm._v("1.5h")]
-                          ),
-                          _c(
-                            "uni-view",
-                            { class: _vm._$g(16, "c"), attrs: { _i: 16 } },
-                            [_vm._v("2.0h")]
-                          ),
-                          _c(
-                            "uni-view",
-                            { class: _vm._$g(17, "c"), attrs: { _i: 17 } },
-                            [_vm._v("2.5h")]
-                          ),
-                          _c(
-                            "uni-view",
-                            { class: _vm._$g(18, "c"), attrs: { _i: 18 } },
-                            [_vm._v("3.0h")]
-                          ),
-                        ],
-                        1
+                        { class: _vm._$g(12, "c"), attrs: { _i: 12 } },
+                        [_vm._v("0.5h")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { class: _vm._$g(13, "c"), attrs: { _i: 13 } },
+                        [_vm._v("1.0h")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { class: _vm._$g(14, "c"), attrs: { _i: 14 } },
+                        [_vm._v("1.5h")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { class: _vm._$g(15, "c"), attrs: { _i: 15 } },
+                        [_vm._v("2.0h")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { class: _vm._$g(16, "c"), attrs: { _i: 16 } },
+                        [_vm._v("2.5h")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { class: _vm._$g(17, "c"), attrs: { _i: 17 } },
+                        [_vm._v("3.0h")]
                       ),
                     ],
                     1
                   ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                    [
-                      _c(
-                        "uni-view",
-                        {
-                          staticClass: _vm._$g(20, "sc"),
-                          attrs: { _i: 20 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event)
-                            },
-                          },
-                        },
-                        [
-                          _c("uni-view", {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm._$g(21, "v-show"),
-                                expression: "_$g(21,'v-show')",
-                              },
-                            ],
-                            staticClass: _vm._$g(21, "sc"),
-                            attrs: { _i: 21 },
-                          }),
-                        ],
-                        1
-                      ),
-                      _c("uni-view", { attrs: { _i: 22 } }, [
-                        _vm._v("Set as default"),
-                      ]),
-                    ],
-                    1
-                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                [
                   _c(
                     "uni-view",
                     {
-                      class: _vm._$g(23, "c"),
-                      attrs: { _i: 23 },
+                      staticClass: _vm._$g(19, "sc"),
+                      attrs: { _i: 19 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -6263,366 +6224,403 @@ var render = function () {
                       },
                     },
                     [
-                      _c("v-uni-button", { attrs: { _i: 24 } }, [
-                        _vm._v("Confirm"),
-                      ]),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm._$g(25, "v-show"),
-                      expression: "_$g(25,'v-show')",
-                    },
-                  ],
-                  staticClass: _vm._$g(25, "sc"),
-                  attrs: { _i: 25 },
-                },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
-                    [
-                      _c(
-                        "uni-view",
-                        {
-                          attrs: { _i: 27 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event)
-                            },
+                      _c("uni-view", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm._$g(20, "v-show"),
+                            expression: "_$g(20,'v-show')",
                           },
-                        },
-                        [
-                          _c(
-                            "uni-view",
-                            {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm._$g(28, "v-show"),
-                                  expression: "_$g(28,'v-show')",
-                                },
-                              ],
-                              staticClass: _vm._$g(28, "sc"),
-                              attrs: { _i: 28 },
-                            },
-                            [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticStyle: {
-                                    width: "90%",
-                                    height: "49rpx",
-                                    background: "#222222",
-                                    "font-size": "32rpx",
-                                    position: "absolute",
-                                    top: "265rpx",
-                                    left: "5%",
-                                    color: "#FFFFFF",
-                                    "text-align": "center",
-                                  },
-                                  attrs: { _i: 29 },
-                                },
-                                [_vm._v("Left Side")]
-                              ),
-                            ],
-                            1
-                          ),
-                          _c(
-                            "uni-view",
-                            {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm._$g(30, "v-show"),
-                                  expression: "_$g(30,'v-show')",
-                                },
-                              ],
-                              staticClass: _vm._$g(30, "sc"),
-                              attrs: { _i: 30 },
-                            },
-                            [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticStyle: {
-                                    width: "100%",
-                                    height: "39rpx",
-                                    background: "#191919",
-                                    "font-size": "32rpx",
-                                    position: "absolute",
-                                    top: "245rpx",
-                                    left: "0",
-                                    color: "rgba(135, 135, 135, 1)",
-                                    "text-align": "center",
-                                  },
-                                  attrs: { _i: 31 },
-                                },
-                                [_vm._v("Left Side")]
-                              ),
-                            ],
-                            1
-                          ),
                         ],
-                        1
-                      ),
-                      _c(
-                        "uni-view",
-                        {
-                          attrs: { _i: 32 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event)
-                            },
-                          },
-                        },
-                        [
-                          _c(
-                            "uni-view",
-                            {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm._$g(33, "v-show"),
-                                  expression: "_$g(33,'v-show')",
-                                },
-                              ],
-                              staticClass: _vm._$g(33, "sc"),
-                              attrs: { _i: 33 },
-                            },
-                            [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticStyle: {
-                                    width: "90%",
-                                    height: "49rpx",
-                                    background: "#222222",
-                                    "font-size": "32rpx",
-                                    position: "absolute",
-                                    top: "265rpx",
-                                    left: "5%",
-                                    color: "#FFFFFF",
-                                    "text-align": "center",
-                                  },
-                                  attrs: { _i: 34 },
-                                },
-                                [_vm._v("Right Side")]
-                              ),
-                            ],
-                            1
-                          ),
-                          _c(
-                            "uni-view",
-                            {
-                              directives: [
-                                {
-                                  name: "show",
-                                  rawName: "v-show",
-                                  value: _vm._$g(35, "v-show"),
-                                  expression: "_$g(35,'v-show')",
-                                },
-                              ],
-                              staticClass: _vm._$g(35, "sc"),
-                              attrs: { _i: 35 },
-                            },
-                            [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticStyle: {
-                                    width: "100%",
-                                    height: "39rpx",
-                                    background: "#191919",
-                                    "font-size": "32rpx",
-                                    position: "absolute",
-                                    top: "245rpx",
-                                    left: "0",
-                                    color: "rgba(135, 135, 135, 1)",
-                                    "text-align": "center",
-                                  },
-                                  attrs: { _i: 36 },
-                                },
-                                [_vm._v("Right Side")]
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
+                        staticClass: _vm._$g(20, "sc"),
+                        attrs: { _i: 20 },
+                      }),
                     ],
                     1
                   ),
-                  _c(
-                    "uni-view",
-                    { class: _vm._$g(37, "c"), attrs: { _i: 37 } },
-                    [
-                      _c(
-                        "v-uni-button",
-                        {
-                          attrs: { type: "default", _i: 38 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event)
-                            },
-                          },
-                        },
-                        [_vm._v("Confirm")]
-                      ),
-                    ],
-                    1
-                  ),
+                  _c("uni-view", { attrs: { _i: 21 } }, [
+                    _vm._v("Set as default"),
+                  ]),
                 ],
                 1
               ),
               _c(
                 "uni-view",
                 {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm._$g(39, "v-show"),
-                      expression: "_$g(39,'v-show')",
-                    },
-                  ],
-                  attrs: { _i: 39 },
-                },
-                [_c("controller", { attrs: { _i: 40 } })],
-                1
-              ),
-              _c(
-                "uni-view",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm._$g(41, "v-show"),
-                      expression: "_$g(41,'v-show')",
-                    },
-                  ],
-                  staticClass: _vm._$g(41, "sc"),
-                  attrs: { _i: 41 },
-                },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
-                    [
-                      _c(
-                        "v-uni-button",
-                        {
-                          attrs: { _i: 43 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event)
-                            },
-                          },
-                        },
-                        [_vm._v("Back")]
-                      ),
-                    ],
-                    1
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
-                    [
-                      _c(
-                        "v-uni-button",
-                        {
-                          attrs: { _i: 45 },
-                          on: {
-                            click: function ($event) {
-                              return _vm.$handleViewEvent($event)
-                            },
-                          },
-                        },
-                        [_vm._v("Start")]
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm._$g(46, "v-show"),
-                      expression: "_$g(46,'v-show')",
-                    },
-                  ],
-                  staticClass: _vm._$g(46, "sc"),
-                  attrs: { _i: 46 },
-                },
-                [
-                  _c(
-                    "uni-view",
-                    {
-                      staticStyle: { color: "#FFFFFF", "font-size": "46rpx" },
-                      attrs: { _i: 47 },
-                    },
-                    [_vm._v(_vm._$g(47, "t0-0"))]
-                  ),
-                  _c(
-                    "uni-view",
-                    {
-                      staticStyle: {
-                        width: "158rpx",
-                        color: "#C7C7C7",
-                        "font-size": "28rpx",
-                        "margin-top": "20rpx",
-                        "text-align": "center",
-                      },
-                      attrs: { _i: 48 },
-                    },
-                    [_vm._v("Automatically\n          Cleaning")]
-                  ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm._$g(49, "v-show"),
-                      expression: "_$g(49,'v-show')",
-                    },
-                  ],
-                  staticClass: _vm._$g(49, "sc"),
-                  attrs: { _i: 49 },
+                  class: _vm._$g(22, "c"),
+                  staticStyle: { "margin-top": "135rpx" },
+                  attrs: { _i: 22 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
                     },
                   },
                 },
-                [_c("v-uni-button", { attrs: { _i: 50 } }, [_vm._v("Stop")])],
+                [
+                  _c("v-uni-button", { attrs: { _i: 23 } }, [
+                    _vm._v("Confirm"),
+                  ]),
+                ],
+                1
+              ),
+              _vm._$g(24, "i")
+                ? _c("uni-view", {
+                    staticClass: _vm._$g(24, "sc"),
+                    attrs: { _i: 24 },
+                  })
+                : _vm._e(),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(25, "v-show"),
+                  expression: "_$g(25,'v-show')",
+                },
+              ],
+              staticClass: _vm._$g(25, "sc"),
+              attrs: { _i: 25 },
+            },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
+                [
+                  _c(
+                    "uni-view",
+                    {
+                      attrs: { _i: 27 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "uni-view",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm._$g(28, "v-show"),
+                              expression: "_$g(28,'v-show')",
+                            },
+                          ],
+                          staticClass: _vm._$g(28, "sc"),
+                          attrs: { _i: 28 },
+                        },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticStyle: {
+                                width: "90%",
+                                height: "49rpx",
+                                background: "#222222",
+                                "font-size": "32rpx",
+                                position: "absolute",
+                                top: "265rpx",
+                                left: "5%",
+                                color: "#FFFFFF",
+                                "text-align": "center",
+                              },
+                              attrs: { _i: 29 },
+                            },
+                            [_vm._v("Left Side")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm._$g(30, "v-show"),
+                              expression: "_$g(30,'v-show')",
+                            },
+                          ],
+                          staticClass: _vm._$g(30, "sc"),
+                          attrs: { _i: 30 },
+                        },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticStyle: {
+                                width: "100%",
+                                height: "39rpx",
+                                background: "#191919",
+                                "font-size": "32rpx",
+                                position: "absolute",
+                                top: "245rpx",
+                                left: "0",
+                                color: "rgba(135, 135, 135, 1)",
+                                "text-align": "center",
+                              },
+                              attrs: { _i: 31 },
+                            },
+                            [_vm._v("Left Side")]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    {
+                      attrs: { _i: 32 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "uni-view",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm._$g(33, "v-show"),
+                              expression: "_$g(33,'v-show')",
+                            },
+                          ],
+                          staticClass: _vm._$g(33, "sc"),
+                          attrs: { _i: 33 },
+                        },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticStyle: {
+                                width: "90%",
+                                height: "49rpx",
+                                background: "#222222",
+                                "font-size": "32rpx",
+                                position: "absolute",
+                                top: "265rpx",
+                                left: "5%",
+                                color: "#FFFFFF",
+                                "text-align": "center",
+                              },
+                              attrs: { _i: 34 },
+                            },
+                            [_vm._v("Right Side")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm._$g(35, "v-show"),
+                              expression: "_$g(35,'v-show')",
+                            },
+                          ],
+                          staticClass: _vm._$g(35, "sc"),
+                          attrs: { _i: 35 },
+                        },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticStyle: {
+                                width: "100%",
+                                height: "39rpx",
+                                background: "#191919",
+                                "font-size": "32rpx",
+                                position: "absolute",
+                                top: "245rpx",
+                                left: "0",
+                                color: "rgba(135, 135, 135, 1)",
+                                "text-align": "center",
+                              },
+                              attrs: { _i: 36 },
+                            },
+                            [_vm._v("Right Side")]
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { class: _vm._$g(37, "c"), attrs: { _i: 37 } },
+                [
+                  _c(
+                    "v-uni-button",
+                    {
+                      attrs: { type: "default", _i: 38 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_vm._v("Confirm")]
+                  ),
+                ],
                 1
               ),
             ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(39, "v-show"),
+                  expression: "_$g(39,'v-show')",
+                },
+              ],
+              attrs: { _i: 39 },
+            },
+            [_c("controller", { attrs: { _i: 40 } })],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(41, "v-show"),
+                  expression: "_$g(41,'v-show')",
+                },
+              ],
+              staticClass: _vm._$g(41, "sc"),
+              attrs: { _i: 41 },
+            },
+            [
+              _c(
+                "uni-view",
+                { class: _vm._$g(42, "c"), attrs: { _i: 42 } },
+                [
+                  _c(
+                    "v-uni-button",
+                    {
+                      attrs: { _i: 43 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_vm._v("Back")]
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "uni-view",
+                { class: _vm._$g(44, "c"), attrs: { _i: 44 } },
+                [
+                  _c(
+                    "v-uni-button",
+                    {
+                      attrs: { _i: 45 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_vm._v("Start")]
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(46, "v-show"),
+                  expression: "_$g(46,'v-show')",
+                },
+              ],
+              staticClass: _vm._$g(46, "sc"),
+              attrs: { _i: 46 },
+            },
+            [
+              _c(
+                "uni-view",
+                {
+                  staticStyle: { color: "#FFFFFF", "font-size": "46rpx" },
+                  attrs: { _i: 47 },
+                },
+                [_vm._v(_vm._$g(47, "t0-0"))]
+              ),
+              _c(
+                "uni-view",
+                {
+                  staticStyle: {
+                    width: "158rpx",
+                    color: "#C7C7C7",
+                    "font-size": "28rpx",
+                    "margin-top": "20rpx",
+                    "text-align": "center",
+                  },
+                  attrs: { _i: 48 },
+                },
+                [_vm._v("Automatically\n        Cleaning")]
+              ),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm._$g(49, "v-show"),
+                  expression: "_$g(49,'v-show')",
+                },
+              ],
+              class: _vm._$g(49, "c"),
+              attrs: { _i: 49 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [_c("v-uni-button", { attrs: { _i: 50 } }, [_vm._v("Stop")])],
             1
           ),
         ],
@@ -6740,7 +6738,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/* 水平间距 */\n/* 水平间距 */\n.task[data-v-7f5021a4] {\n  padding-bottom: 40rpx;\n}\n.task .select[data-v-7f5021a4] {\n  width: 278rpx;\n  height: 62rpx;\n  margin: 0 206rpx;\n  background: #262626;\n  border-radius: 31rpx 31rpx 31rpx 31rpx;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  color: #888888;\n  font-size: 28rpx;\n}\n.task .select .time[data-v-7f5021a4],\n.task .select .area[data-v-7f5021a4] {\n  width: 139rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.task .select .active[data-v-7f5021a4] {\n  width: 139rpx;\n  height: 62rpx;\n  background: #FF8616;\n  color: #111111;\n  border-radius: 31rpx 31rpx 31rpx 31rpx;\n}\n.task .select .no-active[data-v-7f5021a4] {\n  width: 139rpx;\n  height: 62rpx;\n  background: #888888;\n  color: #111111;\n  border-radius: 31rpx 31rpx 31rpx 31rpx;\n}\n.task .tip[data-v-7f5021a4] {\n  color: #888888;\n  font-size: 28rpx;\n  margin-top: 20rpx !important;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 0 30rpx;\n}\n.task .select-time[data-v-7f5021a4] {\n  margin-top: 100rpx;\n  margin-top: 0 30rpx;\n}\n.task .select-time .scroll-view[data-v-7f5021a4] {\n  width: 100%;\n  height: 90rpx;\n  color: #FFFFFF;\n  font-size: 32rpx;\n  white-space: nowrap;\n  font-family: \"DIN Black\";\n}\n.task .select-time .scroll-view .content[data-v-7f5021a4] {\n  width: 1360rpx;\n  height: 90rpx;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n}\n.task .select-time .scroll-view .content .scroll-view-item[data-v-7f5021a4] {\n  width: 120rpx;\n  margin-right: 60rpx;\n}\n.task .select-time .scroll-view .content .scroll-view-item[data-v-7f5021a4]:last-child {\n  margin-right: 312rpx;\n}\n.task .select-time .scroll-view .content .scroll-view-item[data-v-7f5021a4]:first-of-type {\n  margin-left: 312rpx;\n}\n.task .select-time .scroll-view .content .active[data-v-7f5021a4] {\n  font-size: 65rpx;\n  transition: font-size 0.25s linear;\n}\n.task .select-time .scroll-view .content .no-active[data-v-7f5021a4] {\n  font-size: 37rpx;\n  transition: font-size 0.25s linear;\n}\n.task .select-time .always[data-v-7f5021a4] {\n  margin-left: 249rpx;\n  margin-top: 80rpx;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  color: #888888;\n  font-size: 26rpx;\n}\n.task .select-time .always .icon[data-v-7f5021a4] {\n  width: 25rpx;\n  height: 25rpx;\n  margin-right: 11rpx;\n  border-radius: 50%;\n  border: 1rpx solid #888888;\n  position: relative;\n}\n.task .select-time .always .icon .dot[data-v-7f5021a4] {\n  width: 20rpx;\n  height: 20rpx;\n  border-radius: 50%;\n  background: #FF8616;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.task .select-time .always uni-image[data-v-7f5021a4] {\n  width: 25rpx;\n  height: 25rpx;\n}\n.task .select-time .btn[data-v-7f5021a4] {\n  margin-top: 183rpx;\n}\n.task .select-time .btn uni-button[data-v-7f5021a4] {\n  margin-top: 127rpx;\n  width: 242rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .select-area[data-v-7f5021a4] {\n  height: 353rpx;\n  margin-top: 50rpx;\n}\n.task .select-area .icon[data-v-7f5021a4] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.task .select-area .no-active[data-v-7f5021a4] {\n  width: 314rpx;\n  height: 314rpx;\n}\n.task .select-area .active[data-v-7f5021a4] {\n  width: 353rpx;\n  height: 353rpx;\n}\n.task .select-area .left-active[data-v-7f5021a4] {\n  width: 353rpx;\n  height: 353rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat;\n  background-size: 353rpx 353rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .left-no-active[data-v-7f5021a4] {\n  width: 314rpx;\n  height: 314rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat;\n  background-size: 314rpx 314rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .right-active[data-v-7f5021a4] {\n  width: 353rpx;\n  height: 353rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") no-repeat;\n  background-size: 353rpx 353rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .right-no-active[data-v-7f5021a4] {\n  width: 314rpx;\n  height: 314rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") no-repeat;\n  background-size: 314rpx 314rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .btn[data-v-7f5021a4] {\n  margin-top: 75rpx;\n}\n.task .select-area .btn uni-button[data-v-7f5021a4] {\n  width: 242rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .control[data-v-7f5021a4] {\n  width: 570rpx;\n  height: 570rpx;\n  margin: 0 60rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") no-repeat;\n  background-size: 570rpx 570rpx;\n  position: relative;\n}\n.task .control uni-image[data-v-7f5021a4] {\n  width: 108rpx;\n  height: 108rpx;\n  position: absolute;\n  left: 234rpx;\n  top: 136rpx;\n}\n.task .control-bnts[data-v-7f5021a4] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 40rpx;\n}\n.task .control-bnts .back uni-button[data-v-7f5021a4] {\n  width: 180rpx;\n  height: 86rpx;\n  border: 1rpx solid #FF8616;\n  color: #FF8616;\n  background: #111111;\n}\n.task .control-bnts .region-start uni-button[data-v-7f5021a4] {\n  width: 180rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .area-start[data-v-7f5021a4] {\n  margin: 60rpx 175rpx 94rpx 175rpx;\n  width: 340rpx;\n  height: 340rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") no-repeat;\n  background-size: 340rpx 340rpx;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.task .stop[data-v-7f5021a4] {\n  margin-bottom: 186rpx;\n}\n.task .stop uni-button[data-v-7f5021a4] {\n  width: 180rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .no-btn[data-v-7f5021a4] {\n  margin-top: 75rpx;\n}\n.task .no-btn uni-button[data-v-7f5021a4] {\n  width: 242rpx;\n  height: 86rpx;\n  background: #262626;\n  color: #888888;\n}\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/* 水平间距 */\n/* 水平间距 */\n/* 解决小程序和app滚动条的问题 */\n[data-v-7f5021a4] uni-scroll-view .uni-scroll-view::-webkit-scrollbar {\n  display: none;\n}\n/* 解决H5 的问题 */\n.task[data-v-7f5021a4] {\n  padding-bottom: 40rpx;\n}\n.task .select[data-v-7f5021a4] {\n  width: 278rpx;\n  height: 62rpx;\n  margin: 0 206rpx;\n  background: #262626;\n  border-radius: 31rpx 31rpx 31rpx 31rpx;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  color: #888888;\n  font-size: 28rpx;\n}\n.task .select .time[data-v-7f5021a4],\n.task .select .area[data-v-7f5021a4] {\n  width: 139rpx;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.task .select .active[data-v-7f5021a4] {\n  width: 139rpx;\n  height: 62rpx;\n  background: #FF8616;\n  color: #111111;\n  border-radius: 31rpx 31rpx 31rpx 31rpx;\n}\n.task .select .no-active[data-v-7f5021a4] {\n  width: 139rpx;\n  height: 62rpx;\n  background: #888888;\n  color: #111111;\n  border-radius: 31rpx 31rpx 31rpx 31rpx;\n}\n.task .tip[data-v-7f5021a4] {\n  color: #888888;\n  font-size: 28rpx;\n  margin-top: 20rpx !important;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 0 30rpx;\n}\n.task .select-time[data-v-7f5021a4] {\n  margin-top: 100rpx;\n  margin-top: 0 30rpx;\n  position: relative;\n}\n.task .select-time .not-scroll[data-v-7f5021a4] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.task .select-time .scroll-view[data-v-7f5021a4] {\n  width: 100%;\n  height: 90rpx;\n  color: #FFFFFF;\n  font-size: 32rpx;\n  white-space: nowrap;\n  font-family: \"DIN Black\";\n}\n.task .select-time .scroll-view .content[data-v-7f5021a4] {\n  width: 1360rpx;\n  height: 90rpx;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n}\n.task .select-time .scroll-view .content .scroll-view-item[data-v-7f5021a4] {\n  width: 120rpx;\n  margin-right: 60rpx;\n}\n.task .select-time .scroll-view .content .scroll-view-item[data-v-7f5021a4]:last-child {\n  margin-right: 312rpx;\n}\n.task .select-time .scroll-view .content .scroll-view-item[data-v-7f5021a4]:first-of-type {\n  margin-left: 312rpx;\n}\n.task .select-time .scroll-view .content .active[data-v-7f5021a4] {\n  font-size: 65rpx;\n  transition: font-size 0.25s linear;\n}\n.task .select-time .scroll-view .content .no-active[data-v-7f5021a4] {\n  font-size: 37rpx;\n  transition: font-size 0.25s linear;\n}\n.task .select-time .always[data-v-7f5021a4] {\n  margin-left: 249rpx;\n  margin-top: 80rpx;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  color: #888888;\n  font-size: 26rpx;\n}\n.task .select-time .always .icon[data-v-7f5021a4] {\n  width: 25rpx;\n  height: 25rpx;\n  margin-right: 11rpx;\n  border-radius: 50%;\n  border: 1rpx solid #888888;\n  position: relative;\n}\n.task .select-time .always .icon .dot[data-v-7f5021a4] {\n  width: 20rpx;\n  height: 20rpx;\n  border-radius: 50%;\n  background: #FF8616;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n.task .select-time .always uni-image[data-v-7f5021a4] {\n  width: 25rpx;\n  height: 25rpx;\n}\n.task .select-time .btn[data-v-7f5021a4] {\n  margin-top: 183rpx;\n}\n.task .select-time .btn uni-button[data-v-7f5021a4] {\n  margin-top: 127rpx;\n  width: 242rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .select-area[data-v-7f5021a4] {\n  height: 353rpx;\n  margin-top: 50rpx;\n}\n.task .select-area .icon[data-v-7f5021a4] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.task .select-area .no-active[data-v-7f5021a4] {\n  width: 314rpx;\n  height: 314rpx;\n}\n.task .select-area .active[data-v-7f5021a4] {\n  width: 353rpx;\n  height: 353rpx;\n}\n.task .select-area .left-active[data-v-7f5021a4] {\n  width: 353rpx;\n  height: 353rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat;\n  background-size: 353rpx 353rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .left-no-active[data-v-7f5021a4] {\n  width: 314rpx;\n  height: 314rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat;\n  background-size: 314rpx 314rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .right-active[data-v-7f5021a4] {\n  width: 353rpx;\n  height: 353rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") no-repeat;\n  background-size: 353rpx 353rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .right-no-active[data-v-7f5021a4] {\n  width: 314rpx;\n  height: 314rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") no-repeat;\n  background-size: 314rpx 314rpx;\n  box-sizing: border-box;\n  position: relative;\n}\n.task .select-area .btn[data-v-7f5021a4] {\n  margin-top: 75rpx;\n}\n.task .select-area .btn uni-button[data-v-7f5021a4] {\n  width: 242rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .control[data-v-7f5021a4] {\n  width: 570rpx;\n  height: 570rpx;\n  margin: 0 60rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") no-repeat;\n  background-size: 570rpx 570rpx;\n  position: relative;\n}\n.task .control uni-image[data-v-7f5021a4] {\n  width: 108rpx;\n  height: 108rpx;\n  position: absolute;\n  left: 234rpx;\n  top: 136rpx;\n}\n.task .control-bnts[data-v-7f5021a4] {\n  width: calc(100vw - 60rpx);\n  position: fixed;\n  bottom: 20rpx;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.task .control-bnts .back uni-button[data-v-7f5021a4] {\n  width: 180rpx;\n  height: 86rpx;\n  border: 1rpx solid #FF8616;\n  color: #FF8616;\n  background: #111111;\n}\n.task .control-bnts .region-start uni-button[data-v-7f5021a4] {\n  width: 180rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .area-start[data-v-7f5021a4] {\n  margin: 60rpx 175rpx 94rpx 175rpx;\n  width: 340rpx;\n  height: 340rpx;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") no-repeat;\n  background-size: 340rpx 340rpx;\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n.task .stop[data-v-7f5021a4] {\n  margin-bottom: 186rpx;\n}\n.task .stop uni-button[data-v-7f5021a4] {\n  width: 180rpx;\n  height: 86rpx;\n  background: #FF8616;\n}\n.task .no-btn uni-button[data-v-7f5021a4] {\n  width: 242rpx;\n  height: 86rpx;\n  background: #262626;\n  color: #888888;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

@@ -360,36 +360,41 @@
             uni.hideLoading()
             this.handleNoSreachDevice(true)
             console.log("连接成功", res);
+            // uni.showToast({
+            //   title: "连接成功",
+            //   icon: "none"
+            // })
             // 停止搜索蓝牙
-            uni.stopBluetoothDevicesDiscovery({
-              success: (res) => {
-                console.log('停止搜索成功');
+            this.$nextTick(() => {
+              uni.stopBluetoothDevicesDiscovery({
+                success: (res) => {
+                  console.log('停止搜索成功');
+                  onBLEConnectionStateChange()
 
-                onBLEConnectionStateChange()
+                  // 保存当前设备
+                  this.hadnleSaveDevice(this.devices[this.currentIndex])
 
-                // 保存当前设备
-                this.hadnleSaveDevice(this.devices[this.currentIndex])
+                  // 打开自动清洁功能 连接设备成功后有延迟
+                  this.handleChangeLinkStatus("success")
+                  this.handleDeviceState({
+                    ...this.deviceStore,
+                    state: '等待'
+                  })
+                  this.handleChangeStateText('Waiting')
+                  uni.setStorageSync("stateText", 'Waiting')
 
-                // 打开自动清洁功能 连接设备成功后有延迟
-                this.handleChangeLinkStatus("success")
-                this.handleDeviceState({
-                  ...this.deviceStore,
-                  state: '等待'
-                })
-                this.handleChangeStateText('Waiting')
-                uni.setStorageSync("stateText", 'Waiting')
+                  uni.setStorageSync("launchflag", true)
+                  uni.setStorageSync("deviceId", deviceId)
+                  // 保存deviceId到store
+                  this.handleSaveDeviceId(deviceId)
 
-                uni.setStorageSync("launchflag", true)
-                uni.setStorageSync("deviceId", deviceId)
-                // 保存deviceId到store
-                this.handleSaveDeviceId(deviceId)
-
-                this.handleSuccesContact(deviceId)
-              },
-              fail: (err) => {
-                console.log("停止搜索失败", err);
-              }
-            });
+                  this.handleSuccesContact(deviceId)
+                },
+                fail: (err) => {
+                  console.log("停止搜索失败", err);
+                },
+              });
+            })
           },
           fail: err => {
             // 连接失败后显示重新搜索设备
@@ -435,12 +440,13 @@
         }
 
         await this.contactDevices.find(id => {
-          if (id === deviceId) {
-            uni.reLaunch({
-              url: "/subpkg/device/device?type=1"
-            })
-            return
-          }
+          // if (id === deviceId) {
+            
+          //   return
+          // }
+          uni.reLaunch({
+            url: "/subpkg/device/device?type=1"
+          })
         })
 
         // this.deviceActive = [...new Set(this.deviceActive.push(deviceId))]

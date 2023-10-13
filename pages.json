@@ -28,11 +28,13 @@
       "style": {
         "app-plus": {
           "titleNView": false,
-          "background": "#111111"
+          "background": "#111111",
+          "bounce": "none"
         },
         "navigationBarTextStyle": "white",
         "backgroundColor": "#111111",
-        "disableScroll": true
+        "disableScroll": true,
+        "enablePullDownRefresh": false
       }
     },
     {
