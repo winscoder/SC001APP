@@ -31,8 +31,8 @@
             <view :class="['scroll-view-item', scrollLeft === 315 ? 'active' : 'no-active']">3.0h</view>
           </view>
         </scroll-view>
-        <view class="always">
-          <view class="icon" @click="handleIsShowAlways">
+        <view class="always" @click="handleIsShowAlways">
+          <view class="icon">
             <view class="dot" v-show="isShowAlawys"></view>
           </view>
           <view>Set as default</view>

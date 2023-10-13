@@ -6210,19 +6210,19 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                {
+                  staticClass: _vm._$g(18, "sc"),
+                  attrs: { _i: 18 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
                 [
                   _c(
                     "uni-view",
-                    {
-                      staticClass: _vm._$g(19, "sc"),
-                      attrs: { _i: 19 },
-                      on: {
-                        click: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
+                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
                     [
                       _c("uni-view", {
                         directives: [
